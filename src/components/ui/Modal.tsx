@@ -55,7 +55,7 @@ export function Modal({
   const isCenteredMobile = variant === "centered-mobile";
 
   return createPortal(
-    <div className="fixed inset-0 z-50 flex justify-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center">
       <button
         aria-label="Close dialog"
         className="absolute inset-0 animate-fade-in bg-[var(--modal-overlay)] backdrop-blur-[3px]"
@@ -70,7 +70,7 @@ export function Modal({
             ? "w-full max-h-[90dvh] rounded-t-[24px] sm:max-h-[92vh] sm:rounded-3xl sm:max-w-lg"
             : isCenteredMobile
               ? "w-full max-w-lg max-h-[90dvh] rounded-3xl m-auto sm:max-h-[92vh]"
-              : "max-h-[92vh] w-full sm:rounded-3xl",
+              : "max-h-[90dvh] w-full sm:rounded-3xl",
           sizes[size],
         )}
         style={
@@ -78,7 +78,7 @@ export function Modal({
             ? { alignSelf: "flex-end" }
             : isCenteredMobile
               ? { alignSelf: "center" }
-              : undefined
+              : { alignSelf: "center" }
         }
       >
         {(title || description) && (

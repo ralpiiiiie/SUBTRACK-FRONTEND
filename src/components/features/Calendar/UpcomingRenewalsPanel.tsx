@@ -9,16 +9,25 @@ export function UpcomingRenewalsPanel({
   subscriptions: Subscription[];
   onSelect: (subscription: Subscription) => void;
 }) {
+  const hasDueSoon = subscriptions.some((s) =>
+    s.renewal_alert === "due_soon" || s.renewal_alert === "due_today" || s.renewal_alert === "overdue"
+  );
+
   return (
     <div className="glass-card lg:col-span-1">
-      <div className="border-b border-line-soft px-5 py-4">
-        <h3 className="font-display text-base font-semibold uppercase tracking-wide text-ink">Next 30 days</h3>
-        <p className="mt-0.5 text-xs text-muted">Renewals you can plan for</p>
+      <div className="border-b border-line-soft px-5 py-4 flex items-center justify-between">
+        <div>
+          <h3 className="font-display text-base font-semibold uppercase tracking-wide text-ink">Next 30 days</h3>
+          <p className="mt-0.5 text-xs text-muted">Renewals you can plan for</p>
+        </div>
+        {hasDueSoon && (
+          <Icon name="alertCircle" className="h-5 w-5 text-danger" aria-hidden="true" />
+        )}
       </div>
       {subscriptions.length === 0 ? (
         <div className="flex flex-col items-center px-6 py-8 text-center">
-          <Icon name="check" className="mb-2 h-5 w-5 text-success" />
-          <p className="text-sm text-muted">
+          
+          <p className="mt-2 text-sm text-muted">
             Nothing renews in the next 30 days.
           </p>
         </div>

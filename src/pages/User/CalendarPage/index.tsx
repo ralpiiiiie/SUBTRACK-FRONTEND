@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/Button";
 import { ErrorState } from "@/components/ui/ErrorState";
 import { Icon } from "@/components/ui/Icon";
 import { Topbar } from "@/components/common/Topbar";
+import { Spinner } from "@/components/ui/Button";
 import {
   RenewalCalendar,
   type CalendarMonth,
@@ -79,7 +80,9 @@ export default function CalendarPage() {
         ) : (
           <>
             {loading ? (
-              <div className="glass-card shimmer h-96" />
+              <div className="glass-card flex flex-col items-center justify-center h-96">
+                <Spinner className="h-6 w-6 text-primary mb-4" />
+              </div>
             ) : (
               <RenewalCalendar
                 month={month}
