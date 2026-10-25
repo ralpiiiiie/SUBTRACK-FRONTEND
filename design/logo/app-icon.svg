@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Square background for app icon -->
+  <rect width="48" height="48" rx="10" fill="#0B1211" />
+
+  <!-- Logo mark scaled to fit 80% safe zone -->
+  <g transform="translate(4, 4) scale(0.8333)">
+    <defs>
+      <linearGradient id="iconGradient" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#f2545b"/>
+        <stop offset="100%" stop-color="#c93a45"/>
+      </linearGradient>
+    </defs>
+    <path d="M8 10h32a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"
+          stroke="url(#iconGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="16" cy="10" r="2.5" fill="url(#iconGradient)"/>
+    <circle cx="32" cy="10" r="2.5" fill="url(#iconGradient)"/>
+    <path d="M24 18c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8c0-2.2-.9-4.2-2.4-5.7"
+          stroke="url(#iconGradient)" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M24 30c4.4 0 8-3.6 8-8s-3.6-8-8-8-8 3.6-8 8c0 2.2.9 4.2 2.4 5.7"
+          stroke="url(#iconGradient)" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M16 25.5l-2.5 2.5 2.5 2.5" stroke="url(#iconGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M32 22.5l2.5-2.5-2.5-2.5" stroke="url(#iconGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+</svg>

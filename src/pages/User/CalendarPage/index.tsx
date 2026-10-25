@@ -125,6 +125,7 @@ export default function CalendarPage() {
         onMarkUsed={actions.handleMarkUsed}
         onEdit={actions.openEdit}
         onDelete={actions.confirmDelete}
+        centerOnMobile
       />
       <ConfirmDialog
         open={Boolean(actions.deleting)}

@@ -18,16 +18,20 @@ export function LogoMark({
     >
       <svg
         viewBox="0 0 48 48"
-        className={cn("h-5 w-5", className)}
+        className={cn("h-6 w-6", className)}
         fill="none"
         stroke="currentColor"
-        strokeWidth="3.4"
+        strokeWidth="3"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M13.5 24.5h14" />
-        <path d="M28.5 14.5a12.5 12.5 0 0 1 0 19" />
-        <path d="M26 14.7l3-4.2 3.2 4" />
+        <path d="M8 10h32a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z" />
+        <circle cx="16" cy="10" r="2.5" fill="currentColor" />
+        <circle cx="32" cy="10" r="2.5" fill="currentColor" />
+        <path d="M24 18c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8c0-2.2-.9-4.2-2.4-5.7" fill="none" />
+        <path d="M24 30c4.4 0 8-3.6 8-8s-3.6-8-8-8-8 3.6-8 8c0 2.2.9 4.2 2.4 5.7" fill="none" />
+        <path d="M16 25.5l-2.5 2.5 2.5 2.5" fill="none" />
+        <path d="M32 22.5l2.5-2.5-2.5-2.5" fill="none" />
       </svg>
     </span>
   );

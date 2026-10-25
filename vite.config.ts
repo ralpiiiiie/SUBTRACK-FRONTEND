@@ -13,16 +13,25 @@ export default defineConfig({
    VitePWA({
      registerType: 'autoUpdate',
      injectRegister: 'auto',
-     includeAssets: ['favicon.svg', 'robots.txt'],
+     includeAssets: [
+       'favicon.svg',
+       'favicon.ico',
+       'favicon-16x16.png',
+       'favicon-32x32.png',
+       'favicon-48x48.png',
+       'robots.txt',
+       'apple-touch-icon.png',
+     ],
      manifest: {
        id: '/',
        name: 'Personal Subscription Tracker',
-       short_name: 'Subscription Tracker',
+       short_name: 'SubTrack',
        description:
          'Track your recurring subscriptions, renewal dates, spending, free trials, and alerts in one place so you never miss a renewal or pay for services you no longer use.',
-       theme_color: '#6d4eff',
-       background_color: '#f8fafc',
+       theme_color: '#0B1211',
+       background_color: '#0B1211',
        display: 'standalone',
+       orientation: 'portrait',
        start_url: '/',
        scope: '/',
        lang: 'en',
@@ -56,9 +65,21 @@ export default defineConfig({
      workbox: {
        globPatterns: ['**/*.{js,css,html,svg,png,ico,woff2}'],
        navigateFallback: '/index.html',
-       navigateFallbackDenylist: [/^\/api\//],
+       navigateFallbackDenylist: [/^\/api\//, /\.onrender\.com/],
        cleanupOutdatedCaches: true,
        maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
+       runtimeCaching: [
+         {
+           urlPattern: ({ url }) => {
+             // VITE_API_URL is injected at build time
+             const apiUrl = "VITE_API_URL" as unknown as string;
+             return apiUrl ? url.href.startsWith(apiUrl) : url.pathname.startsWith('/api/');
+           },
+           handler: 'NetworkOnly',
+         },
+       ],
+       skipWaiting: true,
+       clientsClaim: true,
      },
      devOptions: {
        enabled: false,

@@ -20,6 +20,8 @@ export function DayRenewalsModal({
       onClose={onClose}
       title={selectedDay ? formatFullDate(selectedDay) : undefined}
       description={`${subscriptions.length} renewal${subscriptions.length === 1 ? "" : "s"} on this day`}
+      variant="centered-mobile"
+      size="sm"
     >
       {subscriptions.length === 0 ? (
         <p className="text-sm text-muted">Nothing renews on this day.</p>
