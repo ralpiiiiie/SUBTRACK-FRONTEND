@@ -143,8 +143,9 @@ export function RenewalCalendar({
           const renewals = byDay.get(day) ?? [];
           const dateStr = dateKey(year, monthIndex, day);
           const isCurrentDay = isToday(dateStr);
+          const hasRenewals = renewals.length > 0;
           const isDueSoon = renewals.some((s) => isDueWithinThreeDays(s.renewal_date));
-          const dayClickable = renewals.length > 0 && onSelectDay;
+          const dayClickable = hasRenewals && onSelectDay;
 
           return (
             <div
@@ -153,6 +154,7 @@ export function RenewalCalendar({
                 "min-h-16 bg-transparent p-1.5 sm:min-h-24 sm:p-2",
                 isCurrentDay && "bg-primary-lighter/60",
                 isDueSoon && "bg-danger-light ring-1 ring-inset ring-danger/30",
+                hasRenewals && !isCurrentDay && !isDueSoon && "bg-primary-light/30 ring-2 ring-inset ring-primary/40",
               )}
             >
               {dayClickable ? (
@@ -162,24 +164,36 @@ export function RenewalCalendar({
                   aria-label={`View ${renewals.length} renewal${renewals.length === 1 ? "" : "s"} on ${dateStr}`}
                   title={`View ${renewals.length} renewal${renewals.length === 1 ? "" : "s"} on this day`}
                   className={cn(
-                    "flex h-6 w-6 items-center justify-center rounded-full text-xs font-medium transition-all duration-200",
+                    "flex h-6 w-6 items-center justify-center rounded-full text-xs font-medium transition-all duration-200 relative",
                     isCurrentDay
                       ? "bg-primary text-white"
                       : isDueSoon
                         ? "font-semibold text-danger hover:bg-danger/20"
-                        : "text-ink-soft hover:bg-surface-2",
+                        : hasRenewals
+                          ? "bg-primary text-white hover:bg-primary-dark"
+                          : "text-ink-soft hover:bg-surface-2",
                   )}
                 >
                   {day}
+                  {hasRenewals && !isCurrentDay && !isDueSoon && (
+                    <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary/80 text-[9px] font-bold text-white">
+                      {renewals.length > 9 ? "9+" : renewals.length}
+                    </span>
+                  )}
                 </button>
               ) : (
                 <span
                   className={cn(
-                    "flex h-6 w-6 items-center justify-center rounded-full text-xs font-medium",
+                    "flex h-6 w-6 items-center justify-center rounded-full text-xs font-medium relative",
                     isCurrentDay ? "bg-primary text-white" : "text-ink-soft",
                   )}
                 >
                   {day}
+                  {hasRenewals && !isCurrentDay && !isDueSoon && (
+                    <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary/80 text-[9px] font-bold text-white">
+                      {renewals.length > 9 ? "9+" : renewals.length}
+                    </span>
+                  )}
                 </span>
               )}
 

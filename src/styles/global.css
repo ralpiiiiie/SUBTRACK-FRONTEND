@@ -30,6 +30,8 @@
   --bar-bg: rgba(11, 18, 17, 0.72);
   --inset-hl: rgba(255, 255, 255, 0.06);
   --overlay: rgba(0, 0, 0, 0.6);
+  --modal-overlay: rgba(0, 0, 0, 0.75);
+  --modal-bg: #101a19;
   --shadow-alpha: 0.35;
   --scroll-thumb: rgba(255, 255, 255, 0.16);
   --glow-1: rgba(242, 84, 91, 0.12);
@@ -72,6 +74,8 @@ html[data-theme="light"] {
   --bar-bg: rgba(243, 246, 248, 0.82);
   --inset-hl: rgba(255, 255, 255, 0.75);
   --overlay: rgba(15, 23, 23, 0.45);
+  --modal-overlay: rgba(15, 23, 23, 0.7);
+  --modal-bg: #ffffff;
   --shadow-alpha: 0.1;
   --scroll-thumb: rgba(15, 23, 22, 0.18);
   --glow-1: rgba(201, 58, 69, 0.07);
@@ -235,6 +239,18 @@ html[data-theme="light"] {
       0 20px 50px rgb(0 0 0 / calc(var(--shadow-alpha) + 0.1));
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
+    transition:
+      background-color 200ms ease,
+      border-color 200ms ease;
+  }
+
+  .modal-panel {
+    background-color: var(--modal-bg);
+    border: 1px solid var(--border-strong);
+    border-radius: 24px;
+    box-shadow:
+      inset 0 1px 0 var(--inset-hl),
+      0 20px 50px rgb(0 0 0 / calc(var(--shadow-alpha) + 0.1));
     transition:
       background-color 200ms ease,
       border-color 200ms ease;

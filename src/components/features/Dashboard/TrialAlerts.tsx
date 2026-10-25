@@ -2,7 +2,6 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card, CardHeader } from "@/components/ui/Card";
 import { EmptyState } from "@/components/ui/EmptyState";
-import { Icon } from "@/components/ui/Icon";
 import { trialLabel } from "@/lib/format";
 import type { Subscription } from "@/types/subscription";
 
@@ -39,7 +38,6 @@ export function TrialAlerts({
         <EmptyState
           title="No free trials"
           description="When you add a trial subscription, its countdown will show up here."
-          icon={<Icon name="clock" className="h-5 w-5" />}
         />
       ) : (
         <ul className="divide-y divide-line-soft">

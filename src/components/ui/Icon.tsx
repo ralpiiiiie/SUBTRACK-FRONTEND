@@ -39,7 +39,8 @@ export type IconName =
   | "checkCircle"
   | "arrowRight"
   | "sun"
-  | "moon";
+  | "moon"
+  | "share";
 
 const paths: Record<IconName, React.ReactNode> = {
   dashboard: (
@@ -256,6 +257,14 @@ const paths: Record<IconName, React.ReactNode> = {
     </>
   ),
   moon: <path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z" />,
+  share: (
+    <>
+      <circle cx="18" cy="5" r="3" />
+      <circle cx="6" cy="12" r="3" />
+      <circle cx="18" cy="19" r="3" />
+      <path d="M8.59 13.51 15.42 19.84M15.42 6.16 8.59 12.5" />
+    </>
+  ),
 };
 
 export interface IconProps extends SVGProps<SVGSVGElement> {

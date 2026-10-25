@@ -18,6 +18,7 @@ export interface SubscriptionDetailModalProps {
   onMarkUsed: (subscription: Subscription) => void;
   onEdit: (subscription: Subscription) => void;
   onDelete: (subscription: Subscription) => void;
+  centerOnMobile?: boolean;
 }
 
 function DetailRow({ label, value }: { label: string; value: React.ReactNode }) {
@@ -36,6 +37,7 @@ export function SubscriptionDetailModal({
   onMarkUsed,
   onEdit,
   onDelete,
+  centerOnMobile,
 }: SubscriptionDetailModalProps) {
   if (!subscription) return null;
 
@@ -59,6 +61,7 @@ export function SubscriptionDetailModal({
           {subscription.category_label}
         </span>
       }
+      variant={centerOnMobile ? "centered-mobile" : "default"}
       footer={
         <>
           <Button

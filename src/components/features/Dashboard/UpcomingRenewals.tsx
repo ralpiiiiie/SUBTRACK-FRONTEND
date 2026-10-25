@@ -41,7 +41,6 @@ export function UpcomingRenewals({
         <EmptyState
           title="Nothing due soon"
           description="No subscriptions are renewing in the next 7 days. Enjoy the break."
-          icon={<Icon name="bell" className="h-5 w-5" />}
         />
       ) : (
         <ul className="divide-y divide-line-soft">

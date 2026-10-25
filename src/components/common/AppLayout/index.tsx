@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Outlet } from "react-router";
 import { MobileSidebar, Sidebar } from "@/components/common/Sidebar";
 import PopUpModal from "@/components/ui/PopUpModal";
+import { InstallButton } from "@/components/common/InstallButton";
 import { ensureLoaded as ensureSettingsLoaded } from "@/state/settingsStore";
 import { ensureLoaded as ensureSubscriptionsLoaded } from "@/state/subscriptionStore";
 
@@ -21,6 +22,7 @@ export default function AppLayout() {
         <Outlet context={{ openMenu: () => setMenuOpen(true) }} />
       </main>
       <PopUpModal />
+      <InstallButton />
     </div>
   );
 }
