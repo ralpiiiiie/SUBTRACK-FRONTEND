@@ -16,25 +16,26 @@ export default defineConfig({
      includeAssets: [
        'favicon.svg',
        'favicon.ico',
-       'favicon-16x16.png',
-       'favicon-32x32.png',
-       'favicon-48x48.png',
+       'favicon-16.png',
+       'favicon-32.png',
+       'favicon-48.png',
        'robots.txt',
        'apple-touch-icon.png',
      ],
      manifest: {
        id: '/',
-       name: 'Personal Subscription Tracker',
+       name: 'SubTrack: Personal Subscription Tracker',
        short_name: 'SubTrack',
        description:
          'Track your recurring subscriptions, renewal dates, spending, free trials, and alerts in one place so you never miss a renewal or pay for services you no longer use.',
-       theme_color: '#0B1211',
+       theme_color: '#f2545b',
        background_color: '#0B1211',
        display: 'standalone',
        orientation: 'portrait',
        start_url: '/',
        scope: '/',
        lang: 'en',
+       categories: ['finance', 'productivity'],
        icons: [
          {
            src: '/pwa-192x192.png',

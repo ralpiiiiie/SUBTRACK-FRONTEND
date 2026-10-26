@@ -3,6 +3,7 @@ import { Outlet } from "react-router";
 import { MobileSidebar, Sidebar } from "@/components/common/Sidebar";
 import PopUpModal from "@/components/ui/PopUpModal";
 import { InstallButton } from "@/components/common/InstallButton";
+import { PwaStatus } from "@/components/common/PwaStatus";
 import { ensureLoaded as ensureSettingsLoaded } from "@/state/settingsStore";
 import { ensureLoaded as ensureSubscriptionsLoaded } from "@/state/subscriptionStore";
 
@@ -23,6 +24,7 @@ export default function AppLayout() {
       </main>
       <PopUpModal />
       <InstallButton />
+      <PwaStatus />
     </div>
   );
 }
